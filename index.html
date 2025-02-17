@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mon Modèle 3D</title>
+  <!-- Charge la librairie <model-viewer> -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+    }
+    model-viewer {
+      width: 100vw; height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="./palette.glb"
+    alt="palette 3D"
+    auto-rotate
+    camera-controls
+  >
+  </model-viewer>
+</body>
+</html>
