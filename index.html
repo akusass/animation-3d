@@ -19,6 +19,7 @@
   <!-- Tu peux toucher a partir d'ici  -->
   <!-- Code pour charger ton modele 3D -->
   <model-viewer
+    id="palette"
     src="./palette.glb"
     alt="palette 3D"
     auto-rotate
@@ -26,5 +27,23 @@
     rotation-per-second="30deg"
   >
   </model-viewer>
+
+  <script>
+    let modele = document.getElementById("palette");
+
+    function resetRotation() {
+      modele.setAttribute("rotation", "0 0 0");
+      modele.setAttribute("auto-rotate", "");
+    }
+
+    modele.addEventListener("interaction", () => {
+      modele.removeAttribute("auto-rotate");
+    });
+
+    modele.addEventListener("camera-change", () => {
+      clearTimeout(modele.resetTimeout);
+      modele.resetTimeout = setTimeout(resetRotation, 350);
+    });
+  </script>
 </body>
 </html>
