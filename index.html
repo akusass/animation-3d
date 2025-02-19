@@ -33,20 +33,17 @@
 
     function resetRotation() {
       modelViewer.setAttribute("rotation", "0 0 0");
-      modelViewer.setAttribute("rotation-per-second", "90deg");
-      setTimeout(() => {
-        modelViewer.setAttribute("auto-rotate", "");
-        modelViewer.setAttribute("rotation-per-second", "30deg");
-      }, 500);
+      modelViewer.setAttribute("auto-rotate", "");
     }
 
-    modelViewer.addEventListener("interaction", () => {
+    // Quand l'utilisateur appuie sur le clic gauche
+    modelViewer.addEventListener("mousedown", () => {
       modelViewer.removeAttribute("auto-rotate");
     });
 
-    modelViewer.addEventListener("camera-change", () => {
-      clearTimeout(modelViewer.resetTimeout);
-      modelViewer.resetTimeout = setTimeout(resetRotation, 500);
+    // Quand l'utilisateur relâche le clic gauche
+    modelViewer.addEventListener("mouseup", () => {
+      setTimeout(resetRotation, 500);
     });
   </script>
 </body>
