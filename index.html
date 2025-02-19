@@ -27,24 +27,5 @@
     rotation-per-second="30deg"
   >
   </model-viewer>
-
-  <script>
-    let modelViewer = document.getElementById("paletteModel");
-
-    function resetRotation() {
-      modelViewer.setAttribute("rotation", "0 0 0");
-      modelViewer.setAttribute("auto-rotate", "");
-    }
-
-    // Quand l'utilisateur appuie sur le clic gauche
-    modelViewer.addEventListener("mousedown", () => {
-      modelViewer.removeAttribute("auto-rotate");
-    });
-
-    // Quand l'utilisateur relâche le clic gauche
-    modelViewer.addEventListener("mouseup", () => {
-      setTimeout(resetRotation, 500);
-    });
-  </script>
 </body>
 </html>
