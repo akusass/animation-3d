@@ -19,7 +19,7 @@
   <!-- Tu peux toucher a partir d'ici  -->
   <!-- Code pour charger ton modele 3D -->
   <model-viewer
-    id="palette"
+    id="paletteModel"
     src="./palette.glb"
     alt="palette 3D"
     auto-rotate
@@ -29,20 +29,20 @@
   </model-viewer>
 
   <script>
-    let modele = document.getElementById("palette");
+    let modelViewer = document.getElementById("paletteModel");
 
     function resetRotation() {
-      modele.setAttribute("rotation", "0 0 0");
-      modele.setAttribute("auto-rotate", "");
+      modelViewer.setAttribute("rotation", "0 0 0");
+      modelViewer.setAttribute("auto-rotate", "");
     }
 
-    modele.addEventListener("interaction", () => {
-      modele.removeAttribute("auto-rotate");
+    modelViewer.addEventListener("interaction", () => {
+      modelViewer.removeAttribute("auto-rotate");
     });
 
-    modele.addEventListener("camera-change", () => {
-      clearTimeout(modele.resetTimeout);
-      modele.resetTimeout = setTimeout(resetRotation, 350);
+    modelViewer.addEventListener("camera-change", () => {
+      clearTimeout(modelViewer.resetTimeout);
+      modelViewer.resetTimeout = setTimeout(resetRotation, 2000);
     });
   </script>
 </body>
